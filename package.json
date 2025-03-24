@@ -1,0 +1,40 @@
+{
+  "dependencies": {
+    "@devextreme/runtime": "3.0.12",
+    "devexpress-diagram": "2.2.15",
+    "devexpress-gantt": "4.1.59",
+    "devextreme": "24.2.5",
+    "devextreme-cldr-data": "1.0.3",
+    "devextreme-quill": "1.7.1",
+    "devextreme-react": "24.2.5",
+    "es6-object-assign": "latest",
+    "inferno": "7.4.11",
+    "inferno-clone-vnode": "latest",
+    "inferno-compat": "latest",
+    "inferno-create-class": "latest",
+    "inferno-create-element": "7.4.11",
+    "inferno-dom": "latest",
+    "inferno-extras": "latest",
+    "inferno-hydrate": "latest",
+    "jszip": "3.10.1",
+    "luxon": "3.4.4",
+    "prettier": "2.8.8",
+    "prop-types": "latest",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "rrule": "2.6.4",
+    "whatwg-fetch": "2.0.4"
+  },
+  "description": "Our DataGrid component manages its edit state automatically. If your use case requires full control over the editing process, you can use the API members below to manage state manually. In this demo, we manage state with a help of the useReducer React hook.\nComponent Properties\n\n\nediting.editRowKey\nThe key for the row being edited.\n\n\nediting.editColumnName\nThe name or data field of the column being edited.\n\n\nediting.changes\nPending row changes.\n\n\nBind these properties to state props and set the props to change edit state at runtime. In this demo, we bind the editRowKey and changes properties and use the corresponding on_OptionName_Change event handlers to set the bound props.\nUtility Method\n\nDevExpress.data.applyChanges(data, changes, options)\nApplies an array of changes to a source data array.\n\nEvent Handlers\n\n\nonSaving / onSaved\nFunctions that are called before / after pending row changes are saved via the UI or programmatically.\n\n\nonEditCanceling / onEditCanceled\nFunctions that are called before / after editing is canceled and pending row changes are discarded.\n\n\nUse these functions to perform custom actions. In this demo, the onSaving function sends pending changes to a server. The function's parameter e contains fields for this capability. To implement the same in your application, follow these steps:\n\n\nDisable built-in edit state management\nSet the e.cancel field to true.\n\n\nSend a request to the server\nPending changes are stored in the e.changes array. This array has only a single element in all edit modes, except for batch. Check if this element is not empty and send it to the server (see the saveChange action in actions.js).\n\n\nApply the same changes to the DataGrid's data source and reset edit state\nIf the server successfully saves changes, call the applyChanges method to save the same changes in the DataGrid's data source. Assign null to the editRowKey and an empty array to the changes property. This resets edit state (see the SAVING_SUCCESS handler in reducer.js).\n\n\n",
+  "name": "edit-state-management-forked",
+  "version": "0.0.1",
+  "devDependencies": {
+    "react-scripts": "1.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
